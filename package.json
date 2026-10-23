@@ -1,0 +1,15 @@
+{
+  "name": "projeto-observabilidade-k6",
+  "version": "1.0.0",
+  "description": "Demonstração de testes de carga guiados por observabilidade",
+  "main": "servico1/index.js",
+  "scripts": {
+    "start:s1": "node servico1/index.js",
+    "start:s2": "node servico2/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "express": "^4.18.2",
+    "prom-client": "^15.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+global:
+  # Intervalo de tempo entre cada recolha de métricas
+  scrape_interval: 5s 
+  evaluation_interval: 5s
+
+scrape_configs:
+  # Configuração para o Serviço 1 (Gateway / Entrada)
+  - job_name: 'servico1-gateway'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['servico1:3000']
+
+  # Configuração para o Serviço 2 (Processador de Negócio)
+  - job_name: 'servico2-processador'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['servico2:4000']

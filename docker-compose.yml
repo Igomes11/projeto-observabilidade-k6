@@ -1,0 +1,38 @@
+services:
+  servico1:
+    build:
+      context: .
+      dockerfile: servico1/Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - rede-seminario
+
+  servico2:
+    build:
+      context: .
+      dockerfile: servico2/Dockerfile
+    ports:
+      - "4000:4000"
+    networks:
+      - rede-seminario
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - rede-seminario
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3001:3000"
+    networks:
+      - rede-seminario
+
+networks:
+  rede-seminario:
+    driver: bridge
