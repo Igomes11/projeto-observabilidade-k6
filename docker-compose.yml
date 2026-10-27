@@ -12,6 +12,8 @@ services:
     build:
       context: .
       dockerfile: servico2/Dockerfile
+    environment:
+      - POOL_SIZE=10
     ports:
       - "4000:4000"
     networks:
