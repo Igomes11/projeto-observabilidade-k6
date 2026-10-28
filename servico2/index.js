@@ -27,13 +27,13 @@ function liberar() {
 }
 
 app.get('/processar', async (req, res) => {
-  await adquirir();                                          // espera um cozinheiro livre
+  await adquirir();                                          
   try {
-    const tempo = Math.floor(Math.random() * 100) + 150;    // preparo: 0,15 a 0,25s
+    const tempo = Math.floor(Math.random() * 100) + 150;    
     await new Promise(r => setTimeout(r, tempo));
     res.json({ mensagem: 'Processado com sucesso', tempo });
   } finally {
-    liberar();                                               // libera o cozinheiro
+    liberar();                                               
   }
 });
 
